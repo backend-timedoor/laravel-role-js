@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace timedoor\RoleJs\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class RoleJsCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-role-js';
 
     public $description = 'My command';
 
