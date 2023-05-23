@@ -5,6 +5,7 @@ namespace timedoor\RoleJs;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use timedoor\RoleJs\Commands\RoleJsCommand;
+use timedoor\RoleJs\Commands\RoleJsPublishCommand;
 
 class RoleJsServiceProvider extends PackageServiceProvider
 {
@@ -20,6 +21,7 @@ class RoleJsServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasCommands([
                 RoleJsCommand::class,
+                RoleJsPublishCommand::class,
             ]);
     }
 }
