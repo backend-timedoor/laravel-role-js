@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace timedoor\RoleJs;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use timedoor\RoleJs\Commands\RoleJsCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class RoleJsServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('laravel-role-js')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasCommands([
+                RoleJsCommand::class,
+            ]);
     }
 }
