@@ -26,6 +26,7 @@
         "illuminate/contracts": "^8.0 || ^9.0 || ^10.0"
     },
     "require-dev": {
+        "jeremykenedy/laravel-roles": "^10.0",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^5.10 || ^6.4",
         "nunomaduro/larastan": "^1.0 || ^2.0",
@@ -70,6 +71,9 @@
                 "RoleJs": "timedoor\\RoleJs\\Facades\\RoleJs"
             }
         }
+    },
+    "suggest": {
+        "jeremykenedy/laravel-roles": "Required to use the RoleJs package with default generator."
     },
     "minimum-stability": "dev",
     "prefer-stable": true

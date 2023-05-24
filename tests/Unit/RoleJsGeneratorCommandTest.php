@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\File;
 use timedoor\RoleJs\Tests\Fixtures\Generator\CustomGenerator;
+use timedoor\RoleJs\Tests\Fixtures\Seeder\ConnectRelationshipsSeeder;
+use timedoor\RoleJs\Tests\Fixtures\Seeder\PermissionsTableSeeder;
+use timedoor\RoleJs\Tests\Fixtures\Seeder\RolesTableSeeder;
 
 afterEach(function () {
     File::deleteDirectory(base_path('resources/js'));
@@ -27,6 +30,18 @@ it('can generate roles & permissions data in different path', function () {
         ->assertExitCode(0);
 
     assertGeneratedFile($this, $path);
+})->group('role-js:generate');
+
+it('can generate roles & permissions data using default generator', function () {
+    (new RolesTableSeeder)->run();
+    (new PermissionsTableSeeder)->run();
+    (new ConnectRelationshipsSeeder)->run();
+
+    $this->artisan('role-js:generate')
+        ->expectsOutput('The resources/js/roles/data.ts file has been generated.')
+        ->assertExitCode(0);
+
+    assertGeneratedFile($this, 'resources/js/roles');
 })->group('role-js:generate');
 
 function assertGeneratedFile($test, string $path)
