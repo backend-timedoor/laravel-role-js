@@ -1,15 +1,16 @@
 import { rolePermission } from "./data";
-import { PermissionType, RolePermission, RoleType } from "./type";
+import { PermissionType, HasRolePermission, RoleType, RolePermission } from "./type";
 
-export function useRole(user?: RolePermission) {
+export function useRole(user?: HasRolePermission) {
   const userPermissions: PermissionType[] = [];
   const userRoles: RoleType[] = [];
+  const rolePermissions = rolePermission as Partial<RolePermission>;
 
   if (user) {
     userRoles.push(...(Array.isArray(user.role) ? user.role : [user.role]));
 
     for (const roleItem of userRoles) {
-      userPermissions.push(...rolePermission[roleItem] ?? []);
+      userPermissions.push(...rolePermissions[roleItem] ?? []);
     }
 
     if (user.permissions && user.permissions.length > 0) {
