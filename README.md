@@ -20,7 +20,7 @@ Don't forget to install [jeremykenedy/laravel-roles](https://github.com/jeremyke
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-role-js-config"
+php artisan vendor:publish --tag="role-js-config"
 ```
 
 This is the contents of the published config file:
